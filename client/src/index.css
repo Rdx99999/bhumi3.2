@@ -1,0 +1,246 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom utility classes for mobile-responsive design */
+@layer utilities {
+  /* Use CSS variable for viewport height to handle mobile browsers better */
+  .h-screen-dynamic {
+    height: 100vh; /* Fallback */
+    height: calc(var(--vh, 1vh) * 100);
+  }
+  
+  .min-h-screen-dynamic {
+    min-height: 100vh; /* Fallback */
+    min-height: calc(var(--vh, 1vh) * 100);
+  }
+  
+  /* Mobile-friendly max widths for content containers */
+  .max-w-content-sm {
+    max-width: calc(100vw - 2rem);
+  }
+  
+  .max-w-content-md {
+    max-width: calc(100vw - 3rem);
+  }
+  
+  /* Better text sizing for mobile */
+  .text-responsive {
+    font-size: clamp(1rem, 4vw, 1.25rem);
+  }
+  
+  .heading-responsive {
+    font-size: clamp(1.5rem, 6vw, 2.25rem);
+  }
+  
+  /* Fix for iOS Safari 100vh issue */
+  @supports (-webkit-touch-callout: none) {
+    .h-screen, .min-h-screen {
+      height: -webkit-fill-available;
+    }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground scroll-smooth;
+  }
+
+  img {
+    @apply max-w-full h-auto;
+  }
+  
+  /* Global color variables */
+  :root {
+    --primary-dark: hsl(210, 85%, 17%);
+    --primary-light: hsl(210, 75%, 85%);
+    --accent-color: hsl(280, 65%, 60%);
+    --success-color: hsl(142, 76%, 36%);
+    --success-light: hsl(142, 75%, 96%);
+    --warning-color: hsl(45, 93%, 47%);
+    --warning-light: hsl(45, 93%, 96%);
+    --danger-color: hsl(354, 70%, 54%);
+    --danger-light: hsl(354, 70%, 96%);
+    --info-color: hsl(200, 75%, 50%);
+    --info-light: hsl(200, 75%, 96%);
+  }
+
+  /* Improved focus styles for accessibility */
+  :focus {
+    @apply outline-none ring-2 ring-primary/50 ring-offset-2 ring-offset-background;
+  }
+  
+  /* Smooth scrolling for anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Grid background pattern */
+  .bg-grid-white {
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  }
+  
+  /* Button and UI element styles */
+  .btn-gradient {
+    @apply bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800;
+  }
+  
+  .card-highlight {
+    @apply bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300;
+  }
+  
+  .bg-primary-dark {
+    background-color: var(--primary-dark);
+  }
+  
+  /* Professional styling elements */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600;
+  }
+  
+  .border-gradient {
+    @apply border border-transparent bg-gradient-to-r from-blue-400 to-blue-600 bg-origin-border;
+  }
+  
+  /* Container modifications for better symmetry */
+  .container {
+    @apply mx-auto w-full max-w-[1280px] px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Symmetrical layouts */
+  .symmetrical-grid {
+    @apply grid grid-cols-1 gap-x-8 gap-y-8 md:grid-cols-2 lg:grid-cols-3;
+  }
+  
+  .symmetrical-grid-2 {
+    @apply grid grid-cols-1 gap-x-8 gap-y-8 md:grid-cols-2;
+  }
+}
+
+@layer utilities {
+  /* Responsive text utilities */
+  .text-responsive {
+    @apply text-sm sm:text-base md:text-lg;
+  }
+
+  .heading-responsive {
+    @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl;
+  }
+  
+  .subtitle-responsive {
+    @apply text-base sm:text-lg md:text-xl text-gray-600;
+  }
+
+  /* Spacing utilities for common responsive patterns */
+  .p-responsive {
+    @apply p-4 sm:p-6 md:p-8 lg:p-10;
+  }
+
+  .py-responsive {
+    @apply py-8 sm:py-12 md:py-16 lg:py-20;
+  }
+
+  .px-responsive {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  .m-responsive {
+    @apply m-4 sm:m-6 md:m-8 lg:m-10;
+  }
+
+  .my-responsive {
+    @apply my-6 sm:my-8 md:my-10 lg:my-12;
+  }
+
+  .mx-responsive {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Symmetrical spacing */
+  .section-spacing {
+    @apply py-10 sm:py-16 md:py-20 lg:py-24;
+  }
+  
+  .content-spacing {
+    @apply mb-8 sm:mb-10 md:mb-12 lg:mb-16;
+  }
+  
+  /* Professional utility classes */
+  .shadow-soft {
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+  }
+  
+  .shadow-card {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+  }
+  
+  .shadow-card-hover {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  
+  .shadow-card-hover:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transform: translateY(-2px);
+  }
+  
+  .transition-fast {
+    @apply transition-all duration-200 ease-in-out;
+  }
+  
+  .transition-medium {
+    @apply transition-all duration-300 ease-in-out;
+  }
+  
+  .glass-effect {
+    @apply bg-white bg-opacity-10 backdrop-blur-sm border border-white border-opacity-20;
+  }
+  
+  .glass-card {
+    @apply bg-white bg-opacity-90 backdrop-blur-md border border-gray-100 shadow-soft;
+  }
+  
+  /* Animation utilities */
+  .fade-in {
+    animation: fadeIn 0.5s ease forwards;
+  }
+  
+  .slide-up {
+    animation: slideUp 0.5s ease forwards;
+  }
+  
+  .slide-in-right {
+    animation: slideInRight 0.5s ease forwards;
+  }
+  
+  .pulse-slow {
+    animation: pulse 3s infinite;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes slideInRight {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  
+  @keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+  }
+}

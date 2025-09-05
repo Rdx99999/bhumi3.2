@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <meta name="description" content="Bhumi Consultancy offers professional business consulting, training programs, and certification services to help businesses achieve their full potential." />
+    <meta name="keywords" content="business consulting, training programs, certification, audit services, bhumi consultancy" />
+    <meta name="author" content="Bhumi Consultancy Services" />
+    <meta property="og:title" content="Bhumi Consultancy Services" />
+    <meta property="og:description" content="Professional business consulting, training programs, and certification services to help your business grow." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bhumiconsultancy.in" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Bhumi Consultancy Services" />
+    <meta name="twitter:description" content="Professional business consulting, training programs, and certification services." />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <title>Bhumi Consultancy Services | Professional Business Solutions</title>
+    <!-- Base URL for proper client-side routing -->
+    <base href="/" />
+    <!-- Cache control for better refresh handling -->
+    <script>
+      // Initialize routeCache for refresh handling
+      window.routeCache = {
+        currentPath: window.location.pathname || '/'
+      };
+      
+      // This helps with mobile-specific issues
+      document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+      window.addEventListener('resize', () => {
+        document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+      });
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

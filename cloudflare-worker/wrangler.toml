@@ -1,0 +1,14 @@
+name = "bhumi-consultancy-worker"
+main = "worker.js"
+compatibility_date = "2023-01-01"
+
+# D1 Database Configuration
+[[d1_databases]]
+binding = "DB"
+database_name = "bhumi_consultancy_db"
+database_id = "your-d1-database-id"  # Replace with your actual D1 database ID
+
+# Routes Configuration
+[routes]
+pattern = "api/*"
+zone_name = "your-domain.com"  # Replace with your actual domain

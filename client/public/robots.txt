@@ -1,0 +1,57 @@
+User-agent: *
+Allow: /
+Crawl-delay: 1
+
+# Important pages for better indexing
+Allow: /about
+Allow: /training-programs
+Allow: /contact
+Allow: /verify-certificate
+Allow: /services/*
+Allow: /training-programs/*
+
+# Block unnecessary paths that waste crawl budget
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /admin
+Disallow: /login
+Disallow: /dashboard
+
+# Special rules for major search engines
+User-agent: Googlebot
+Crawl-delay: 0
+Allow: /
+
+User-agent: Bingbot
+Crawl-delay: 1
+Allow: /
+
+User-agent: Slurp
+Crawl-delay: 2
+Allow: /
+
+# Social media crawlers for rich previews
+User-agent: facebookexternalhit/*
+Allow: /
+Crawl-delay: 0
+
+User-agent: Twitterbot
+Allow: /
+Crawl-delay: 0
+
+User-agent: LinkedInBot
+Allow: /
+Crawl-delay: 0
+
+# Bad bots (common scrapers/spammers)
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Sitemaps
+Sitemap: https://bhumiconsultancy.in/sitemap.xml
